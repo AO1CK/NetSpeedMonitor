@@ -1,0 +1,41 @@
+{
+  "name": "network-speed-monitor",
+  "version": "1.0.0",
+  "description": "Electron application to monitor real-time network speed",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [
+    "electron",
+    "network",
+    "speed",
+    "monitor"
+  ],
+  "author": "Developer",
+  "license": "MIT",
+  "build": {
+    "appId": "com.network.monitor",
+    "productName": "网络速度监控器",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "dependencies": {
+    "systeminformation": "^5.27.11"
+  },
+  "devDependencies": {
+    "electron": "^38.3.0"
+  }
+}

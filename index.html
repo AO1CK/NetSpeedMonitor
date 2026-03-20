@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网络速度监控</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+        
+        h1 {
+            margin-top: 0;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .speed-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        
+        .speed-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            width: 45%;
+            transition: transform 0.3s ease;
+        }
+        
+        .speed-box:hover {
+            transform: scale(1.05);
+        }
+        
+        .upload {
+            border-left: 5px solid #4CAF50;
+        }
+        
+        .download {
+            border-left: 5px solid #2196F3;
+        }
+        
+        .speed-title {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #ddd;
+        }
+        
+        .speed-value {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .upload .speed-value {
+            color: #4CAF50;
+        }
+        
+        .download .speed-value {
+            color: #2196F3;
+        }
+        
+        .total-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+        }
+        
+        .total-box {
+            text-align: center;
+        }
+        
+        .total-title {
+            font-size: 1.1em;
+            color: #ddd;
+            margin-bottom: 5px;
+        }
+        
+        .total-value {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        
+        .upload-total {
+            color: #4CAF50;
+        }
+        
+        .download-total {
+            color: #2196F3;
+        }
+        
+        .updated {
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>网络速度监控</h1>
+        
+        <div class="speed-container">
+            <div class="speed-box upload">
+                <div class="speed-title">上传速度</div>
+                <div id="upload-speed" class="speed-value">0 KB/s</div>
+            </div>
+            
+            <div class="speed-box download">
+                <div class="speed-title">下载速度</div>
+                <div id="download-speed" class="speed-value">0 KB/s</div>
+            </div>
+        </div>
+        
+        <div class="total-container">
+            <div class="total-box">
+                <div class="total-title">累计上传</div>
+                <div id="total-upload" class="total-value upload-total">0 KB</div>
+            </div>
+            
+            <div class="total-box">
+                <div class="total-title">累计下载</div>
+                <div id="total-download" class="total-value download-total">0 KB</div>
+            </div>
+        </div>
+        
+        <div class="updated">
+            最后更新: <span id="last-updated">--</span>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
